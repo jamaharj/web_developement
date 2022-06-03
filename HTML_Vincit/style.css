@@ -1,0 +1,90 @@
+
+body {
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    margin: 0;
+
+    font-family: Myriad Pro;
+}
+
+/**
+* SECTION: LOGO
+*/
+.sanco-image {
+    width: 100%;
+}
+
+/**
+* SECTION: INFO
+*/
+
+.info {
+    padding-left: 2%;
+}
+
+/**
+* SECTION: USER INTERACTION LABEL
+*/
+
+.interactionfield {
+    background-color: hsla(0, 0%, 100%, 0.6);
+
+    padding: 2%;
+
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+}
+
+form{
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+
+/**
+* SECTION: INFO && USER INTERACTION LABEL
+*/
+
+.title {
+    font-weight: bold;
+}
+
+.infofield {
+    background-color:hsla(0, 0%, 100%, 0.836);
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    margin-top: 2%;
+
+    border-radius: 10px; 
+    text-align: left;
+}
+
+/**
+* SECTION: BUTTON 
+*/
+
+#click > input {
+    background-color: white;
+    text-align: center;
+    transition-duration: 0.5s;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 14px 32px;
+}
+
+  
+#click > input:hover {
+    background-color: #ffb866; 
+}
+
+#click {
+    text-align: center;
+}
