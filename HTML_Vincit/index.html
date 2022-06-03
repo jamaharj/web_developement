@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <!-- Load css file. -->
+    <link rel="StyleSheet" href="style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <title>BitcoinAnalyzer</title>
+    <!-- Load React library -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  </head>
+
+<body>
+  <!-- SECTION: LOGO -->
+  <div>
+      <img src="logo.png" alt="sanco-logo" class="sanco-image">
+  </div>
+
+
+  <div  class="interactionfield">
+
+    <!-- SECTION: INFO -->
+    <div id = "recommendation" class="infofield">
+      <p class="title">Hi! Start by selecting search time interval. </p>
+    </div>
+
+    <!-- SECTION: USER INTERACTION LABEL -->
+    <div class="infofield">
+      <p class="title">Search by selecting start and end dates:</p>
+      <form>
+        <label for="startday">Search time interval:</label>
+        <!-- <input type="text" id="startday" required pattern="\d{2}-\d{2}-\d{4}"  maxlength="10" name="startday" onfocus="(this.type='date')" onblur="(this.type='text')" > -->
+        <input type="date" id="startday" required pattern="\d{2}-\d{2}-\d{4}"  maxlength="10" name="startday">
+        <label for="startday"> - </label>
+        <!-- <input type="text" id="endday"  required pattern="\d{2}-\d{2}-\d{4}" maxlength="10" name="endday" onfocus="(this.type='date')" onblur="(this.type='text')" > -->
+        <input type="date" id="endday"  required pattern="\d{2}-\d{2}-\d{4}" maxlength="10" name="endday">
+      </form>
+    </div>
+
+  </div>
+
+  <!-- SECTION: BUTTON -->
+  <div id = "click">
+    <input onclick="getMostDownwardDays()" type= button value="Search"/>
+  </div>
+
+  <!-- Load JS/React file -->
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
