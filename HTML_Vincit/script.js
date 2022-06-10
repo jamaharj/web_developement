@@ -3,6 +3,15 @@
 
 /* 
  * ==============================================
+ *          INITIALIZATION OF VARIABLES
+ *                
+ * ==============================================
+*/
+
+const root = ReactDOM.createRoot(document.getElementById('recommendation'));
+
+/* 
+ * ==============================================
  *            UNPARSED DATA RETRIEVAL
  *                
  * ==============================================
@@ -262,29 +271,41 @@ function addHours(date, hours) {
 const getMostDownwardDays = async() => { // const getMostDownwardDays = async(days) => {
   
   let startday = new Date(document.getElementById("startday").value);
+  console.log(new Date(document.getElementById("startday").value));
   let endday = new Date(document.getElementById("endday").value);
-  const root = ReactDOM.createRoot(document.getElementById('recommendation'));
+  
 
 
   try {
-    if(startday.getTime() === endday.getTime()) {
+    
+    if(startday.getTime() === endday.getTime()) { // search starting date same as search ending date
       var element = /*#__PURE__*/React.createElement("div", null, 
       /*#__PURE__*/React.createElement("p", { className: "title" }, "Error:"),
       /*#__PURE__*/React.createElement("p", { className: "info" }, "Wrong search time input. Starting and ending date can't be same date.")
       );
       root.render(element);
     }
-    else if(startday.getTime() > new Date() || endday.getTime() > new Date()){
+    
+    else if(startday.getTime() > new Date() || endday.getTime() > new Date()){ // search starting date or search ending date later than realtime present moment
       var element = /*#__PURE__*/React.createElement("div", null, 
       /*#__PURE__*/React.createElement("p", { className: "title" }, "Error:"),
       /*#__PURE__*/React.createElement("p", { className: "info" }, "Wrong search time input. Search starting date or ending date can't be later than "+ new Date())
       );
       root.render(element);
     }
-    else if(startday.getTime() > endday.getTime() || isNaN(startday.getTime()) || isNaN(endday.getTime())){
-      var element = /*#__PURE__*/React.createElement("div", null, 
+    
+    else if(startday.getTime() > endday.getTime()){ // search starting date is later than search ending date
+      var element = /*#__PURE__*/React.createElement("div", null,    
       /*#__PURE__*/React.createElement("p", { className: "title" }, "Error:"),
       /*#__PURE__*/React.createElement("p", { className: "info" }, "Wrong search time input. Starting date is later than ending date.")
+      );
+      root.render(element);
+    }
+    
+    else if(isNaN(startday.getTime()) || isNaN(endday.getTime())){ // user input is not in a right form
+      var element = /*#__PURE__*/React.createElement("div", null,    
+      /*#__PURE__*/React.createElement("p", { className: "title" }, "Error:"),
+      /*#__PURE__*/React.createElement("p", { className: "info" }, "Wrong search time input. Starting or ending date is not a date.")
       );
       root.render(element);
     }
@@ -332,11 +353,12 @@ const getMostDownwardDays = async() => { // const getMostDownwardDays = async(da
       /*#__PURE__*/React.createElement("p", { className: "info" }, "Wrong input format. Type the search time in format: DD-MM-YYYY.")
       );
       root.render(element);
-    }    
-  } catch (error) {
+    }
+  
+  } catch (error) { // unexpected bug --> inform to code writer
     var element = /*#__PURE__*/React.createElement("div", null, 
     /*#__PURE__*/React.createElement("p", { className: "title" }, "Error:"),
-    /*#__PURE__*/React.createElement("p", { className: "info" }, "Something went wrong. Take contact to service provider.")
+    /*#__PURE__*/React.createElement("p", { className: "info" }, "Oops! Something went wrong. Take contact to service provider.")
     );
     root.render(element);
   }
